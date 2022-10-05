@@ -1,7 +1,7 @@
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class ProblemOne {
+public class Task_11 {
 
     private static final double ACCURACY = Math.pow(10, -4);
     private static final double A = 3;
@@ -16,7 +16,7 @@ public class ProblemOne {
         equations.put(x -> Math.pow(x, 6) - 5 * Math.pow(x, 3) - 2, new Variable(1, 2, 2));
         equations.put(x -> Math.log(x) - (1 / (1 + Math.pow(x, 2))), new Variable(1, 2, 1));
         equations.put(x -> Math.pow(3, x) - 5 * Math.pow(x, 2) + 1, new Variable(0, 1, 1));
-
+        
         char letter = 'a';
         for (Map.Entry<Operationable,  Variable> equation : equations.entrySet()) {
             System.out.println("уравнение " + letter + ".\n");

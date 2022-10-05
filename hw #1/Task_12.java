@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-public class ProblemTwo {
+public class Task_12 {
     private static final double ACCURACY = Math.pow(10, -8);
 
     public static void main(String[] args) {
