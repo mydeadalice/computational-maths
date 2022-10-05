@@ -4,8 +4,8 @@ import java.util.Map;
 public class Task_11 {
 
     private static final double ACCURACY = Math.pow(10, -4);
-    private static final double A = 3;
-    private static final double N = 2;
+    private static final double A = 3;  //A > 0
+    private static final double N = 2;  //N принадлежит натуральным числам
 
     public static void main(String[] args) {
         Map<Operationable,  Variable> equations = new LinkedHashMap<>();
