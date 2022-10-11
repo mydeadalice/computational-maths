@@ -14,24 +14,24 @@ public class Task_12 {
 
         char letter = 'a';
         for (Map.Entry<LinkedList<Operationable>,  Double> equation : equations.entrySet()) {
-            System.out.println("уравнение " + letter + ".\n");
+            System.out.printf("уравнение %c.\n\n", letter);
             doNewton(equation.getKey().get(0), equation.getKey().get(1), equation.getValue());
-            System.out.println();
+            System.out.printf("\n");
             ++letter;
         }
     }
     
     private static void doNewton(Operationable fx, Operationable dfx, double x0) {
-        System.out.println("метод ньютона:\n");
+        System.out.printf("метод ньютона:\n\n");
         int i = 1;
         double x1 = x0 - fx.calculate(x0) / dfx.calculate(x0);
         while(Math.abs(x0 - x1) > ACCURACY) {
-            System.out.println("шаг " + i + ". x = " + x1);
+            System.out.printf("шаг %d. x = %f\n", i, x1);
             x0 = x1;
             x1 = x0 - fx.calculate(x0) / dfx.calculate(x0);
             ++i;
         }
-        System.out.println("шаг " + i + ". x = " + x1);
+        System.out.printf("шаг %d. x = %f\n", i, x1);
     }
 }
 

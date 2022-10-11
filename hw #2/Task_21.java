@@ -21,14 +21,24 @@ public class Task_21 {
 
         int i = 1;
         for (Map.Entry<LinkedList<Operationable>,  Double> equation : equations.entrySet()) {
-            System.out.println("уравнение №" + i + ".\n");
+            System.out.printf("уравнение №%d.\n\n", i);
             doSimpleIterations(equation.getKey().get(0), equation.getKey().get(1), equation.getValue());
             ++i;
         }
     }
 
+    public static void searchX (Operationable equation) {
+        LinkedList<Double> startingXs = new LinkedList<>();
+        int a = -5, b = 5;
+        for (int i = a; i < b; ++i) {
+            if (equation.calculate(i) * equation.calculate(i + 1) < 0) {
+                startingXs.add((double) i);
+            }
+        }
+    }
+
     public static void doSimpleIterations (Operationable fx, Operationable dfx, Double x) {
-        System.out.println("метод простых итераций:\n");
+        System.out.printf("метод простых итераций:\n\n");
         double lambda = 1 / dfx.calculate(x);
         double x0;
         int i = 1;
@@ -36,11 +46,11 @@ public class Task_21 {
         do {
             x0 = x;
             x = x0 - lambda * fx.calculate(x0);
-            System.out.println("шаг " + i + ". x = " + x);
+            System.out.printf("шаг %d. x = %f\n", i, x);
             ++i;
         } while (Math.abs(x - x0) > ACCURACY);
 
-        System.out.println();
+        System.out.printf("\n");
     }
 }
 

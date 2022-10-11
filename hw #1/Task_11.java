@@ -19,7 +19,7 @@ public class Task_11 {
         
         char letter = 'a';
         for (Map.Entry<Operationable,  Variable> equation : equations.entrySet()) {
-            System.out.println("уравнение " + letter + ".\n");
+            System.out.printf("уравнение %c.\n\n", letter);
             doDychotomy(equation.getKey(), equation.getValue().getA(), equation.getValue().getB());
             doNewton(equation.getKey(), equation.getValue().getX0());
             ++letter;
@@ -27,11 +27,11 @@ public class Task_11 {
     }
     
     private static void doDychotomy (Operationable equation, double a, double b) {
-        System.out.println("метод дихотомии:\n");
+        System.out.printf("метод дихотомии:\n\n");
         int i = 1;
         double c = (a + b) / 2;
         if (equation.calculate(a) * equation.calculate(b) > 0) {
-            System.out.println("на данном отрезке нет корней.\n");
+            System.out.printf("на данном отрезке нет корней.\n\n");
         } else {
             while ((b - a) > ACCURACY) {
                 if (equation.calculate(a) * equation.calculate(c) < 0) {
@@ -39,16 +39,16 @@ public class Task_11 {
                 } else {
                     a = c;
                 }
-                System.out.println("шаг " + i + ". x = " + c);
+                System.out.printf("шаг %d. x = %f\n", i, c);
                 c = (a + b) / 2;
                 ++i;
             }
-            System.out.println();
+            System.out.printf("\n");
         }
     }
 
     private static void doNewton(Operationable equation, double xn) {
-        System.out.println("метод ньютона:\n");
+        System.out.printf("метод ньютона:\n\n");
         int i = 1;
         double x0 = xn;
         double x1, increment, fx, dfx, approximation;
@@ -59,10 +59,10 @@ public class Task_11 {
             x1  = x0 - fx / dfx;
             approximation = Math.abs(x0 - x1);
             x0 = x1;
-            System.out.println("шаг " + i + ". x = " + x1);
+            System.out.printf("шаг %d. x = %f\n", i, x1);
             ++i;
         } while(approximation > ACCURACY);
-        System.out.println();
+        System.out.printf("\n");
     }
 }
 
