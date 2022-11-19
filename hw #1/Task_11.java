@@ -1,6 +1,9 @@
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import resources.Operationable;
+import resources.Variable;
+
 public class Task_11 {
 
     private static final double ACCURACY = Math.pow(10, -4);
@@ -21,7 +24,7 @@ public class Task_11 {
         for (Map.Entry<Operationable,  Variable> equation : equations.entrySet()) {
             System.out.printf("уравнение %c.\n\n", letter);
             doDychotomy(equation.getKey(), equation.getValue().getA(), equation.getValue().getB());
-            doNewton(equation.getKey(), equation.getValue().getX0());
+            doNewton(equation.getKey(), equation.getValue().getX1());
             ++letter;
         }
     }
@@ -64,32 +67,4 @@ public class Task_11 {
         } while(approximation > ACCURACY);
         System.out.printf("\n");
     }
-}
-
-class Variable {
-    private double a;
-    private double b;
-    private double x0;
-
-    public Variable(double a, double b, double x0) {
-        this.a = a;
-        this.b = b;
-        this.x0 = x0;
-    }
-
-    public double getA() {
-        return this.a;
-    }
-
-    public double getB() {
-        return this.b;
-    }
-
-    public double getX0() {
-        return this.x0;
-    }
-}
-
-interface Operationable {
-    double calculate(double x);
 }

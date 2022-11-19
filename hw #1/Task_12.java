@@ -3,6 +3,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import resources.Operationable;
+
 public class Task_12 {
     private static final double ACCURACY = Math.pow(10, -8);
 
@@ -33,8 +35,4 @@ public class Task_12 {
         }
         System.out.printf("шаг %d. x = %f\n", i, x1);
     }
-}
-
-interface Operationable {
-    double calculate(double x);
 }

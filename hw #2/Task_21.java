@@ -3,6 +3,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import resources.Operationable;
+
 public class Task_21 {
 
     private static final double A = 2;
@@ -70,8 +72,4 @@ public class Task_21 {
 
         System.out.printf("\n");
     }
-}
-
-interface Operationable {
-    double calculate(double x);
 }
