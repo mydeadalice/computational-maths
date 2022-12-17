@@ -50,7 +50,7 @@ public class Task_31 {
 
         // обратный ход (зануление верхнего правого угла)
         for (int k = n - 1; k > -1; --k) {  // k -- номер строки
-            for (int i = n; i > -1; --i) { //i-номер столбца
+            for (int i = n; i > -1; --i) {  //i-номер столбца
                 matrixClone[k][i] /= matrix[k][k];
             }
 
